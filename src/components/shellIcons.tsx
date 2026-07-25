@@ -24,8 +24,8 @@ function Stroke({ size = 24, children, ...rest }: IconProps & { children: Compon
   );
 }
 
-/** Image→vector mark: pixel grid on the left resolving into a vector path with
- * anchor nodes on the right — the Image to SVG logo (40×40 viewBox). */
+/** Pen-tool mark: a Bézier curve between two square anchor handles — the core
+ * gesture of vector editing — the Image to SVG logo (40×40 viewBox). */
 export function LogoMark({ size = 34 }: { size?: number }) {
   return (
     <svg
@@ -35,19 +35,14 @@ export function LogoMark({ size = 34 }: { size?: number }) {
       fill="none"
       style={{ color: "var(--accent)" }}
     >
-      {/* raster pixels (the source image), one faded to hint detail */}
-      <rect x="4" y="13" width="6.6" height="6.6" rx="1.4" fill="currentColor" />
-      <rect x="4" y="21" width="6.6" height="6.6" rx="1.4" fill="currentColor" />
-      <rect x="12" y="21" width="6.6" height="6.6" rx="1.4" fill="currentColor" opacity="0.5" />
-      {/* the traced vector path + its anchor nodes */}
       <path
-        d="M13 16 C 23 14, 25 27, 33 26"
+        d="M9 27 C 21 27, 13 13, 31 13"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="2.4"
         strokeLinecap="round"
       />
-      <circle cx="13" cy="16" r="2.7" fill="currentColor" />
-      <circle cx="33" cy="26" r="2.7" fill="currentColor" />
+      <rect x="5.5" y="23.5" width="7" height="7" rx="1.3" fill="currentColor" />
+      <rect x="27.5" y="9.5" width="7" height="7" rx="1.3" fill="currentColor" />
     </svg>
   );
 }
