@@ -2,7 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 
 export type Theme = "light" | "dark";
 
-const STORAGE_KEY = "halftone:theme:v1";
+const STORAGE_KEY = "image-to-svg:theme:v1";
 
 function initialTheme(): Theme {
   try {

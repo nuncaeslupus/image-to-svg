@@ -22,7 +22,7 @@ export function SiteHeader() {
         <LogoMark size={52} />
         <div className={styles.brandText}>
           <div className={styles.wordmarkRow}>
-            <h1 className={styles.wordmark}>Halftone</h1>
+            <h1 className={styles.wordmark}>Image to SVG</h1>
             <span className={styles.keywords}>{m.keywords}</span>
           </div>
           <span className={styles.tagline}>{m.tagline}</span>
@@ -56,7 +56,7 @@ export function SiteFooter() {
       </a>
       <a
         className={styles.githubLink}
-        href="https://github.com/nuncaeslupus/halftone"
+        href="https://github.com/nuncaeslupus/image-to-svg"
         target="_blank"
         rel="noopener noreferrer"
       >

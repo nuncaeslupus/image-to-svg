@@ -4,12 +4,12 @@ import preact from "@preact/preset-vite";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig(({ command }) => ({
-  base: command === "build" ? "/halftone/" : "/",
+  base: command === "build" ? "/image-to-svg/" : "/",
   build: {
     // One HTML shell per language + page, so crawlers get each version at its
     // own URL (a client-side toggle can't change a crawler's view). Vite keeps
     // each input's directory in the output: es/index.html → dist/es/index.html
-    // → served at /halftone/es/. Language is read from the path at
+    // → served at /image-to-svg/es/. Language is read from the path at
     // runtime (see langFromPath).
     rollupOptions: {
       input: {
@@ -37,8 +37,8 @@ export default defineConfig(({ command }) => ({
         navigateFallbackDenylist: [/\.[a-z0-9]+$/i],
       },
       manifest: {
-        name: "Halftone — Free Image to SVG Vectorizer",
-        short_name: "Halftone",
+        name: "Image to SVG — Free Vectorizer",
+        short_name: "Image to SVG",
         description:
           "Free, private image-to-SVG vectorizer that runs entirely in your browser. No ads, no upload, no sign-up.",
         theme_color: "#f2f5fa",

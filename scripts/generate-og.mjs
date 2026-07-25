@@ -69,10 +69,10 @@ function cardSvg({ keywords, tagline }) {
   <rect width="1200" height="630" fill="${BG}"/>
   <rect x="0" y="0" width="1200" height="9" fill="${ACCENT}"/>
   <g transform="translate(96,92) scale(2.7)" fill="${ACCENT}">${LOGO}</g>
-  <text x="230" y="186" font-family="${FONT}" font-size="82" font-weight="700" fill="${FG}">Halftone</text>
+  <text x="230" y="186" font-family="${FONT}" font-size="82" font-weight="700" fill="${FG}">Image to SVG</text>
   <text x="100" y="360" font-family="${FONT}" font-size="52" font-weight="700" letter-spacing="1.5" fill="${ACCENT}">${esc(keywords)}</text>
   <text x="100" y="428" font-family="${FONT}" font-size="34" fill="${MUTED}">${esc(tagline)}</text>
-  <text x="100" y="566" font-family="${FONT}" font-size="26" fill="#6a7681">nuncaeslupus.github.io/halftone</text>
+  <text x="100" y="566" font-family="${FONT}" font-size="26" fill="#6a7681">nuncaeslupus.github.io/image-to-svg</text>
 </svg>`;
 }
 
