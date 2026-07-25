@@ -56,6 +56,17 @@ export function LockIcon({ size = 14 }: { size?: number }) {
   );
 }
 
+/** Help / FAQ mark — a question mark in a circle (footer FAQ link). */
+export function HelpIcon({ size = 16 }: { size?: number }) {
+  return (
+    <Stroke size={size}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+      <path d="M12 17h.01" />
+    </Stroke>
+  );
+}
+
 export function SunIcon({ size = 17 }: { size?: number }) {
   return (
     <Stroke size={size}>

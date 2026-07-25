@@ -7,7 +7,7 @@
 import { useTheme } from "../lib/theme";
 import { useI18n } from "../lib/i18n";
 import { LanguageSelect } from "./LanguageSelect";
-import { LogoMark, SunIcon, MoonIcon, GitHubIcon } from "./shellIcons";
+import { LogoMark, SunIcon, MoonIcon, GitHubIcon, HelpIcon } from "./shellIcons";
 import styles from "../App.module.css";
 
 export function SiteHeader() {
@@ -52,6 +52,7 @@ export function SiteFooter() {
         className={styles.githubLink}
         href={`${import.meta.env.BASE_URL}${lang === "es" ? "es/" : ""}faq/`}
       >
+        <HelpIcon size={16} />
         {m.faq}
       </a>
       <a
