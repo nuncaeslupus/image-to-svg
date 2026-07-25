@@ -36,8 +36,14 @@
     width: auto;
     overflow-y: visible;
   }
-  .stage {
-    min-height: 260px;
+  /* The card no longer pins a fixed height on mobile (App.module.css), so the
+     flex:1 stage has nothing to grow into and collapses to the image's
+     intrinsic size. Give it a viewport-relative height so cropping stays
+     usable. `.editor .stage` (not bare `.stage`) is required: the base
+     `.stage { min-height: 0 }` rule is later in the file and would otherwise
+     win on equal specificity. Matches the 60vh preview on Trace/Export. */
+  .editor .stage {
+    min-height: 60vh;
   }
 }
 

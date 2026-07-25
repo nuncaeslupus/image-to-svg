@@ -26,20 +26,21 @@
 }
 
 @media (max-width: 720px) {
+  .root {
+    height: auto;
+  }
   .layout {
     flex-direction: column;
-    /* In row mode the fixed-width `.controls` gets a stretched height that its
-       own overflow-y:auto scrolls; stacked, nothing constrains the column's
-       height anymore, so the previous rules let content overflow the card
-       (which clips via `overflow:hidden`). Making `.layout` itself the
-       scroll container — it already has a bounded height via the
-       flex:1/min-height:0 chain from `.root` — keeps every control reachable. */
-    overflow-y: auto;
-    min-height: 0;
   }
   .controls {
     flex: none;
     width: auto;
+  }
+  /* The card no longer pins a fixed height on mobile (App.module.css), so give
+     the result a viewport-relative height — otherwise the flex:1 preview
+     collapses to its 200px floor and the image reads tiny above the controls. */
+  .previewCol {
+    min-height: 60vh;
   }
 }
 
