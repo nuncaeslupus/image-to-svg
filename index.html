@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- %BASE_URL% so icons resolve under the GitHub Pages sub-path (base "/halftone/"). -->
+    <!-- %BASE_URL% so icons resolve under the GitHub Pages sub-path (base "/image-to-svg/"). -->
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <link rel="icon" type="image/png" sizes="192x192" href="%BASE_URL%pwa-192x192.png" />
     <link rel="apple-touch-icon" href="%BASE_URL%pwa-192x192.png" />
@@ -15,42 +15,49 @@
          a language-switch reload. Mirrors initialTheme() in src/lib/theme.ts. -->
     <script>
       try {
-        var t = localStorage.getItem("halftone:theme:v1");
+        var t = localStorage.getItem("image-to-svg:theme:v1");
         if (t !== "light" && t !== "dark")
           t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", t);
       } catch (e) {}
     </script>
 
-    <title>Free Image to SVG Vectorizer — in your browser | Halftone</title>
+    <title>Free Image to SVG Vectorizer — in your browser | Image to SVG</title>
     <meta
       name="description"
       content="Vectorize PNG, JPG &amp; WebP to a clean SVG, right in your browser. Free, no ads, no upload, no sign-up — simple, with full control over colors and detail."
     />
-    <link rel="canonical" href="https://nuncaeslupus.github.io/halftone/" />
+    <link rel="canonical" href="https://nuncaeslupus.github.io/image-to-svg/" />
 
     <!-- One indexable URL per language; reciprocal + x-default so Google serves
          the right one. Keep in sync with es/index.html. -->
-    <link rel="alternate" hreflang="en" href="https://nuncaeslupus.github.io/halftone/" />
-    <link rel="alternate" hreflang="es" href="https://nuncaeslupus.github.io/halftone/es/" />
-    <link rel="alternate" hreflang="x-default" href="https://nuncaeslupus.github.io/halftone/" />
+    <link rel="alternate" hreflang="en" href="https://nuncaeslupus.github.io/image-to-svg/" />
+    <link rel="alternate" hreflang="es" href="https://nuncaeslupus.github.io/image-to-svg/es/" />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://nuncaeslupus.github.io/image-to-svg/"
+    />
 
     <!-- Open Graph / Twitter. Absolute URLs (crawlers don't resolve relative). -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Halftone" />
-    <meta property="og:title" content="Free Image to SVG Vectorizer — in your browser | Halftone" />
+    <meta property="og:site_name" content="Image to SVG" />
+    <meta
+      property="og:title"
+      content="Free Image to SVG Vectorizer — in your browser | Image to SVG"
+    />
     <meta
       property="og:description"
       content="Vectorize PNG, JPG &amp; WebP to a clean SVG, right in your browser. Free, no ads, no upload, no sign-up — simple, with full control."
     />
-    <meta property="og:url" content="https://nuncaeslupus.github.io/halftone/" />
-    <meta property="og:image" content="https://nuncaeslupus.github.io/halftone/og/og-en.png" />
+    <meta property="og:url" content="https://nuncaeslupus.github.io/image-to-svg/" />
+    <meta property="og:image" content="https://nuncaeslupus.github.io/image-to-svg/og/og-en.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Halftone — free image to SVG vectorizer, right in your browser"
+      content="Image to SVG — free image to SVG vectorizer, right in your browser"
     />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="es_ES" />
@@ -61,8 +68,8 @@
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Halftone",
-        "url": "https://nuncaeslupus.github.io/halftone/",
+        "name": "Image to SVG",
+        "url": "https://nuncaeslupus.github.io/image-to-svg/",
         "description": "Free, private image-to-SVG vectorizer that runs entirely in your browser. Convert PNG, JPG, WebP, GIF, BMP and AVIF to clean SVG with full control over colors and detail — no ads, no upload, no sign-up.",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "Any (modern web browser)",

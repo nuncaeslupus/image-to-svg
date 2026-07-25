@@ -24,7 +24,8 @@ function Stroke({ size = 24, children, ...rest }: IconProps & { children: Compon
   );
 }
 
-/** Radial halftone rosette — the Halftone logo mark (40×40 viewBox). */
+/** Image→vector mark: pixel grid on the left resolving into a vector path with
+ * anchor nodes on the right — the Image to SVG logo (40×40 viewBox). */
 export function LogoMark({ size = 34 }: { size?: number }) {
   return (
     <svg
@@ -34,15 +35,19 @@ export function LogoMark({ size = 34 }: { size?: number }) {
       fill="none"
       style={{ color: "var(--accent)" }}
     >
-      <circle cx="20" cy="20" r="5" fill="currentColor" />
-      <circle cx="20" cy="7" r="2.6" fill="currentColor" />
-      <circle cx="20" cy="33" r="2.6" fill="currentColor" />
-      <circle cx="7" cy="20" r="2.6" fill="currentColor" />
-      <circle cx="33" cy="20" r="2.6" fill="currentColor" />
-      <circle cx="11" cy="11" r="1.8" fill="currentColor" />
-      <circle cx="29" cy="11" r="1.8" fill="currentColor" />
-      <circle cx="11" cy="29" r="1.8" fill="currentColor" />
-      <circle cx="29" cy="29" r="1.8" fill="currentColor" />
+      {/* raster pixels (the source image), one faded to hint detail */}
+      <rect x="4" y="13" width="6.6" height="6.6" rx="1.4" fill="currentColor" />
+      <rect x="4" y="21" width="6.6" height="6.6" rx="1.4" fill="currentColor" />
+      <rect x="12" y="21" width="6.6" height="6.6" rx="1.4" fill="currentColor" opacity="0.5" />
+      {/* the traced vector path + its anchor nodes */}
+      <path
+        d="M13 16 C 23 14, 25 27, 33 26"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <circle cx="13" cy="16" r="2.7" fill="currentColor" />
+      <circle cx="33" cy="26" r="2.7" fill="currentColor" />
     </svg>
   );
 }

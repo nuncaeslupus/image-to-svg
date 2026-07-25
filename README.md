@@ -1,4 +1,4 @@
-# halftone
+# image-to-svg
 
 A free, browser-based file converter. Everything runs client-side — files never
 leave your device, and there's no server cost, no upload limits, no paywall.
@@ -9,7 +9,7 @@ palette / number of colors, level of detail, and straight vs. curved lines.
 
 ## Status
 
-Implemented and deployed to GitHub Pages, with PWA/offline support. **Halftone**
+Implemented and deployed to GitHub Pages, with PWA/offline support. **Image to SVG**
 walks through a 4-step wizard — Upload → Edit → Trace → Export:
 
 - **Tracer:** [VTracer](https://github.com/visioncortex/vtracer) (Rust → WASM),
