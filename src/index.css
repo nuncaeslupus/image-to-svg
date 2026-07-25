@@ -20,9 +20,10 @@
   --border-strong: #c4cddb;
   --fg: #20262f;
   --fg-2: #5a6472;
-  /* >= 4.5:1 vs --surface (#fff), --surface-2 (#fbfcfe) and --bg (#f2f5fa) —
-     see contrast computations in the a11y PR notes. */
-  --fg-3: #626c7a;
+  /* >= 4.5:1 vs the darkest ground it lands on, --page (#e2e7ef) — the footer
+     links sit there, so calibrating only against --surface/--bg (as before)
+     left them at 4.29:1. #59626f clears 4.5:1 on --page and every lighter bg. */
+  --fg-3: #59626f;
   --accent: #0e8f86;
   --accent-soft: #e2f4f2;
   --accent-fg: #0a6b64;
