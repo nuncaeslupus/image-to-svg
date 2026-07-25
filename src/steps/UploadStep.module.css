@@ -79,7 +79,9 @@
   color: var(--fg);
 }
 .cta span {
-  color: var(--accent);
+  /* Text-weight accent (>= 4.5:1 on the dropzone), not the decorative --accent
+     which only reaches ~3.9:1 here and fails WCAG AA. */
+  color: var(--accent-fg);
 }
 
 .formats {
