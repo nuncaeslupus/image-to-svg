@@ -38,6 +38,23 @@
   box-shadow: 0 24px 60px -34px var(--shadow);
 }
 
+/* On mobile the card grows with its content and the whole PAGE scrolls, rather
+   than being pinned to the viewport height with each step scrolling inside a
+   crushed box. Stacked columns (Trace/Export) then show at full size and you
+   scroll naturally from controls to result. Desktop keeps the fixed footprint. */
+@media (max-width: 720px) {
+  .page {
+    align-items: flex-start;
+  }
+  .shell {
+    height: auto;
+    min-height: 0;
+  }
+  .card {
+    overflow: visible;
+  }
+}
+
 /* Step content area — grows to fill the card between the stepper and footer,
    so each step lays out inside a constant-size box. */
 .body {

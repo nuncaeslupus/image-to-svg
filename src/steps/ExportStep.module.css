@@ -20,15 +20,16 @@
 @media (max-width: 720px) {
   .layout {
     flex-direction: column;
-    /* Same fix as TraceStep.module.css: `.layout` is itself `.body > section`
-       here (flex:1/min-height:0 from App.module.css), so it already has a
-       bounded height — becoming the scroll container keeps the stacked
-       preview + controls reachable instead of clipped by the card. */
-    overflow-y: auto;
-    min-height: 0;
+    height: auto;
   }
   .controls {
     flex: none;
     width: auto;
+  }
+  /* The card grows with content on mobile (App.module.css) and the page
+     scrolls, so give the result a viewport-relative height — otherwise the
+     flex:1 preview collapses to its 200px floor above the controls. */
+  .previewCol {
+    min-height: 60vh;
   }
 }
