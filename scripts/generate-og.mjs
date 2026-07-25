@@ -56,13 +56,13 @@ const FONT = "Onest, DejaVu Sans, sans-serif";
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-/** The dot-grid logo mark (mirrors public/favicon.svg / the in-app LogoMark). */
+/** The pen-tool logo mark (mirrors public/favicon.svg / the in-app LogoMark):
+ * a Bézier curve between two square anchors. The <g> below sets fill=ACCENT for
+ * the anchor rects; the curve carries its own accent stroke. */
 const LOGO = `
-  <circle cx="20" cy="20" r="5"/>
-  <circle cx="20" cy="7" r="2.6"/><circle cx="20" cy="33" r="2.6"/>
-  <circle cx="7" cy="20" r="2.6"/><circle cx="33" cy="20" r="2.6"/>
-  <circle cx="11" cy="11" r="1.8"/><circle cx="29" cy="11" r="1.8"/>
-  <circle cx="11" cy="29" r="1.8"/><circle cx="29" cy="29" r="1.8"/>`;
+  <path d="M9 27 C 21 27, 13 13, 31 13" fill="none" stroke="${ACCENT}" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="5.5" y="23.5" width="7" height="7" rx="1.3"/>
+  <rect x="27.5" y="9.5" width="7" height="7" rx="1.3"/>`;
 
 function cardSvg({ keywords, tagline }) {
   return `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
