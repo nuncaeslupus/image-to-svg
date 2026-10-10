@@ -1,5 +1,9 @@
 # image-to-svg
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/nuncaeslupus/image-to-svg/main/docs/hero.png" width="100%" alt="Image to SVG: a pixelated landscape picture goes through four steps, upload, edit, trace and export, and comes out as clean vector paths with the pen tool's anchors on one ridge; free, private, no ads, and works offline">
+</p>
+
 A free, browser-based file converter. Everything runs client-side — files never
 leave your device, and there's no server cost, no upload limits, no paywall.
 
