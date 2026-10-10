@@ -1,4 +1,4 @@
-.PHONY: install dev build preview test test-watch test-build lint format format-check typecheck ci clean
+.PHONY: install dev build preview test test-watch test-build lint format format-check typecheck ci clean hero
 
 install:
 	npm install
@@ -35,6 +35,10 @@ typecheck:
 
 # Full local gate: everything CI runs, in one command.
 ci: lint typecheck test test-build
+
+# Redraw the README banner, docs/hero.svg and docs/hero.png (needs Chromium + uv).
+hero:
+	uv run --with pillow python scripts/hero.py
 
 clean:
 	rm -rf dist node_modules
