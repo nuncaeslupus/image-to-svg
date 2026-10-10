@@ -95,20 +95,40 @@ def sheet() -> list[str]:
         x = 30 + zw * i
         if i:
             out.append(f'<line x1="{x}" y1="16" x2="{x}" y2="30" stroke="{FRAME}"/>')
-            out.append(f'<line x1="{x}" y1="{H - 30}" x2="{x}" y2="{H - 16}" stroke="{FRAME}"/>')
+            out.append(
+                f'<line x1="{x}" y1="{H - 30}" x2="{x}" y2="{H - 16}" stroke="{FRAME}"/>'
+            )
         for y in (27, H - 19):
             out.append(
-                text(x + zw / 2, y, str(8 - i), size=9, fill=DIM, family=MONO, anchor="middle")
+                text(
+                    x + zw / 2,
+                    y,
+                    str(8 - i),
+                    size=9,
+                    fill=DIM,
+                    family=MONO,
+                    anchor="middle",
+                )
             )
     zh = (H - 60) / 4
     for i in range(4):
         y = 30 + zh * i
         if i:
             out.append(f'<line x1="16" y1="{y}" x2="30" y2="{y}" stroke="{FRAME}"/>')
-            out.append(f'<line x1="{W - 30}" y1="{y}" x2="{W - 16}" y2="{y}" stroke="{FRAME}"/>')
+            out.append(
+                f'<line x1="{W - 30}" y1="{y}" x2="{W - 16}" y2="{y}" stroke="{FRAME}"/>'
+            )
         for x in (23, W - 23):
             out.append(
-                text(x, y + zh / 2 + 3, "ABCD"[i], size=9, fill=DIM, family=MONO, anchor="middle")
+                text(
+                    x,
+                    y + zh / 2 + 3,
+                    "ABCD"[i],
+                    size=9,
+                    fill=DIM,
+                    family=MONO,
+                    anchor="middle",
+                )
             )
     for cx, cy in ((48, 48), (48, H - 48)):
         out += [
@@ -151,7 +171,10 @@ def wordmark() -> list[str]:
 def title_block() -> list[str]:
     x, y, w, h = 842, 62, 376, 64
     half = w / 2 - 20
-    cells = [(0.0, "RUNS IN", "your browser, offline too"), (half + 30, "TRACER", "VTracer · WASM")]
+    cells = [
+        (0.0, "RUNS IN", "your browser, offline too"),
+        (half + 30, "TRACER", "VTracer · WASM"),
+    ]
     out = [
         f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{GROUND}" stroke="{FRAME}" '
         f'stroke-width="1.2"/>',
@@ -162,8 +185,19 @@ def title_block() -> list[str]:
         text(x + 10, y + 30, "image-to-svg", size=14, weight=700, family=MONO),
     ]
     for cx, label, value in cells:
-        out.append(text(x + cx + 10, y + 47, label, size=8, fill=DIM, family=MONO, spacing=1.5))
-        out.append(text(x + cx + 10, y + 61, value, size=11, family=MONO, fill=TEAL if cx else INK))
+        out.append(
+            text(x + cx + 10, y + 47, label, size=8, fill=DIM, family=MONO, spacing=1.5)
+        )
+        out.append(
+            text(
+                x + cx + 10,
+                y + 61,
+                value,
+                size=11,
+                family=MONO,
+                fill=TEAL if cx else INK,
+            )
+        )
     return out
 
 
@@ -178,11 +212,19 @@ def pixels(x0: float, y0: float) -> list[str]:
     im = Image.new("RGB", (PW * scale, PH * scale), SKY)
     d = ImageDraw.Draw(im)
     d.ellipse(
-        [(250 - 34) * scale, (62 - 34) * scale, (250 + 34) * scale, (62 + 34) * scale], fill=SUN
+        [(250 - 34) * scale, (62 - 34) * scale, (250 + 34) * scale, (62 + 34) * scale],
+        fill=SUN,
     )
-    d.polygon([(0, PH * scale), (130 * scale, 70 * scale), (270 * scale, PH * scale)], fill=BACK)
     d.polygon(
-        [(110 * scale, PH * scale), (232 * scale, 112 * scale), (PW * scale, PH * scale)],
+        [(0, PH * scale), (130 * scale, 70 * scale), (270 * scale, PH * scale)],
+        fill=BACK,
+    )
+    d.polygon(
+        [
+            (110 * scale, PH * scale),
+            (232 * scale, 112 * scale),
+            (PW * scale, PH * scale),
+        ],
         fill=FRONT,
     )
     small = im.resize((cols, rows), Image.Resampling.BOX)
@@ -266,7 +308,14 @@ def wizard() -> list[str]:
                 anchor="middle",
             ),
             text(x + 48, sy + 28, name, size=15, weight=700, fill=INK),
-            text(x + w - 18, sy + 28, sub, size=12, fill=SOFT if active else DIM, anchor="end"),
+            text(
+                x + w - 18,
+                sy + 28,
+                sub,
+                size=12,
+                fill=SOFT if active else DIM,
+                anchor="end",
+            ),
         ]
         if i < len(STEPS) - 1:
             out.append(
@@ -308,12 +357,37 @@ def strip() -> list[str]:
     return out
 
 
+#: claude-arsenal's own logo, for the "powered by" stamp on the frame.
+ARSENAL_LOGO = ROOT / "docs" / "claude-arsenal-logo.svg"
+
+
+def powered_by() -> list[str]:
+    """A "powered by claude-arsenal" stamp breaking the frame's bottom edge, on the 2|1 tick."""
+    src = ARSENAL_LOGO.read_text().strip()
+    inner = src[src.index(">") + 1 : src.rindex("</svg>")]
+    label, size, tile, pad = "powered by claude-arsenal", 7.5, 12, 6
+    width = pad + tile + 5 + len(label) * size * 0.602 + pad
+    cx, cy = 30 + 7 * (W - 60) / 8, H - 30
+    x = cx - width / 2
+    return [
+        f'<rect x="{x:.1f}" y="{cy - 8}" width="{width:.1f}" height="16" rx="8" '
+        f'fill="{GROUND}" stroke="{FRAME}"/>',
+        f'<svg x="{x + pad:.1f}" y="{cy - tile / 2}" width="{tile}" height="{tile}" '
+        f'viewBox="0 0 64 64">{inner}</svg>',
+        f'<text x="{x + pad + tile + 5:.1f}" y="{cy + 2.7}" font-family="{MONO}" '
+        f'font-size="{size}" fill="{DIM}">{label}</text>',
+    ]
+
+
 def svg() -> str:
     lx, rx, py = 72, 870, 262
     parts = sheet() + wordmark() + title_block()
-    parts += frame(lx, py, PW, PH, "THE IMAGE · PIXELS", "photo.png") + pixels(lx, py + 8)
+    parts += frame(lx, py, PW, PH, "THE IMAGE · PIXELS", "photo.png") + pixels(
+        lx, py + 8
+    )
     parts += frame(rx, py, PW, PH, "THE SVG · PATHS", "photo.svg") + vector(rx, py + 8)
     parts += wizard() + arrows() + strip()
+    parts += powered_by()
     body = "\n  ".join(parts)
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
@@ -337,7 +411,9 @@ def main() -> None:
     OUT_SVG.write_text(svg())
     with tempfile.TemporaryDirectory() as tmp:
         page = Path(tmp) / "hero.html"
-        page.write_text(f'<html><body style="margin:0;overflow:hidden">{svg()}</body></html>')
+        page.write_text(
+            f'<html><body style="margin:0;overflow:hidden">{svg()}</body></html>'
+        )
         subprocess.run(
             [
                 chromium(),
