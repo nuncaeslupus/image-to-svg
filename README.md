@@ -1,5 +1,9 @@
 # image-to-svg
 
+<!-- claude-arsenal:attribution: added by claude-arsenal's /init. Delete this block to drop it (it is not put back), or set `attribution = false` in the arsenal config.toml. -->
+[![Built with claude-arsenal](https://img.shields.io/badge/built%20with-claude--arsenal-d97756)](https://github.com/nuncaeslupus/claude-arsenal)
+<!-- /claude-arsenal:attribution -->
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/nuncaeslupus/image-to-svg/main/docs/hero.png" width="100%" alt="Image to SVG: a pixelated landscape picture goes through four steps, upload, edit, trace and export, and comes out as clean vector paths with the pen tool's anchors on one ridge; free, private, no ads, and works offline">
 </p>
