@@ -7,7 +7,7 @@
 [![Deploy](https://github.com/nuncaeslupus/image-to-svg/actions/workflows/deploy.yml/badge.svg)](https://github.com/nuncaeslupus/image-to-svg/actions/workflows/deploy.yml)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/nuncaeslupus/image-to-svg/main/docs/hero.png" width="100%" alt="Image to SVG: a pixelated landscape picture goes through four steps, upload, edit, trace and export, and comes out as clean vector paths with the pen tool's anchors on one ridge; free, private, no ads, and works offline">
+  <img src="https://raw.githubusercontent.com/nuncaeslupus/image-to-svg/main/docs/hero.png" width="100%" alt="Image to SVG: a pixelated landscape picture goes through upload, edit, trace and export, and comes out as clean vector paths with the pen tool's anchors on one ridge; free, private, no ads, and works offline">
 </p>
 
 **Convert raster images to SVG in the browser, free and without uploading anything.**
@@ -51,16 +51,16 @@ The output is plain SVG with a `viewBox`, so it scales to any size:
 
 ## Features
 
-A four-step wizard: **Upload, Edit, Trace, Export**.
+A wizard: **Upload, Edit, Trace, Export**.
 
-- **Input:** PNG, JPEG, WebP, GIF, BMP and AVIF, up to 25 MB.
+- **Input:** PNG, JPEG, WebP, GIF, BMP and AVIF, up to a size limit.
 - **Edit:** crop, rotate (90-degree steps or any angle), zoom.
 - **Trace:** Colors (Black & white, a fixed count, or Auto), Smoothness, Detail
   and Contrast; transparent or solid background. Hold to compare with the original.
 - **Export:** download or copy the SVG, set the output width and height, see the
   estimated file size and path count.
-- **Fast tweaks:** tracing runs in a Web Worker on a preview downscaled to 512 px
-  on the long edge; background and size changes edit the SVG without retracing.
+- **Fast tweaks:** tracing runs in a Web Worker on a downscaled preview;
+  background and size changes edit the SVG without retracing.
   Export retraces once at full resolution.
 - **Private and offline:** a static site on GitHub Pages, installable as a PWA.
 
@@ -81,7 +81,7 @@ pixels before tracing (`src/lib/quantize.ts`).
 
 ## Development
 
-Node 20 or newer.
+The Node.js version in `package.json` `engines`.
 
 ```bash
 npm install
