@@ -1,6 +1,7 @@
 {
   "name": "image-to-svg",
   "private": true,
+  "license": "MIT",
   "version": "0.1.0",
   "type": "module",
   "description": "Free, browser-based raster-to-SVG converter. Everything runs client-side.",
