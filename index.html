@@ -88,7 +88,32 @@
     </script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Crawlers that don't run JS (most AI bots, partly Bing) see this; the
+           app replaces it on mount. Keep it in sync with what the app does. -->
+      <main>
+        <h1>Image to SVG: free vectorizer in your browser</h1>
+        <p>
+          Convert PNG, JPEG, WebP, GIF, BMP and AVIF images to a clean, scalable SVG. The VTracer
+          engine runs as WebAssembly on your device, so your image is never uploaded. Free and open
+          source, with no ads, no sign-up and no watermark.
+        </p>
+        <ol>
+          <li>Upload an image (up to 25 MB).</li>
+          <li>Crop, rotate and zoom it.</li>
+          <li>Trace it: pick the colors and tune smoothness, detail and contrast.</li>
+          <li>Export: download or copy the SVG, at the width and height you want.</li>
+        </ol>
+        <p>
+          Works best on logos, icons, pixel art and simple illustrations. It keeps working offline
+          once loaded.
+        </p>
+        <p>
+          <a href="faq/">Frequently asked questions</a> · <a href="es/">En español</a> ·
+          <a href="https://github.com/nuncaeslupus/image-to-svg">Source code</a>
+        </p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
